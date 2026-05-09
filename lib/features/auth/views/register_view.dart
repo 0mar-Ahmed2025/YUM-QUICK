@@ -132,12 +132,13 @@ class RegisterView extends StatelessWidget {
                               const SizedBox(height: 10),
                               CustomTextField(
                                 keyboardType: TextInputType.number,
+                                obscureText: cubit.passwordSecure,
                                 controller: cubit.password,
                                 validator: AppValidator.validateRequired,
                                 textFieldName: 'Password',
                                 hintText: 'Enter Your Password',
                                 suffixIcon: IconButton(
-                                  onPressed: () {},
+                                  onPressed: cubit.changePasswordVisibility,
                                   icon: CustomSvgWrapper(
                                     path: 'assets/icons/show_off_icon.svg',
                                   ),
@@ -148,11 +149,13 @@ class RegisterView extends StatelessWidget {
                               CustomTextField(
                                 keyboardType: TextInputType.number,
                                 controller: cubit.confirmPassword,
+                                obscureText: cubit.confirmPasswordSecure,
                                 validator: AppValidator.validateRequired,
                                 textFieldName: 'Confirm Password',
                                 hintText: 'Confirm Your Password',
                                 suffixIcon: IconButton(
-                                  onPressed: () {},
+                                  onPressed:
+                                      cubit.changeConfirmPasswordVisibility,
                                   icon: CustomSvgWrapper(
                                     path: 'assets/icons/show_off_icon.svg',
                                   ),

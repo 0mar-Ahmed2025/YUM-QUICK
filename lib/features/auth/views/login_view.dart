@@ -78,9 +78,7 @@ class LoginView extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        const SizedBox(
-                          width: 20,
-                        ), // للحفاظ على توسيط كلمة Hello
+                        const SizedBox(width: 20),
                       ],
                     ),
                   ),
@@ -127,12 +125,13 @@ class LoginView extends StatelessWidget {
 
                               CustomTextField(
                                 keyboardType: TextInputType.number,
+                                obscureText: cubit.passwordSecure,
                                 controller: cubit.password,
                                 validator: AppValidator.validateRequired,
                                 textFieldName: 'Password',
                                 hintText: 'Enter Password Here',
                                 suffixIcon: IconButton(
-                                  onPressed: () {},
+                                  onPressed: cubit.changePasswordVisibility,
                                   icon: CustomSvgWrapper(
                                     path: 'assets/icons/show_off_icon.svg',
                                   ),
