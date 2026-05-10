@@ -122,9 +122,9 @@ class MyProfileView extends StatelessWidget {
                       SizedBox(height: 30),
                       CustomTextField(
                         controller: cubit.userName,
-                        hintText: 'Enter Your Name',
                         validator: AppValidator.validateRequired,
                         textFieldName: 'Full Name',
+                        hintText: 'Enter Your Name',
                       ),
                       SizedBox(height: 15),
                       CustomTextField(
@@ -150,29 +150,5 @@ class MyProfileView extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> onUpdateTaskPressed() async {
-    // if(formKey.currentState?.validate() == true){
-    //   var result = await APIHelper.updateTask(
-    //     id: widget.taskModel.id??0,
-    //       title: title.text,
-    //       description: desc.text,
-    //       imagePath: imagePath
-    //   );
-    //   result.fold(
-    //           (errorMsg) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    //         content: Text(errorMsg, style: TextStyle(color: AppColors.white),),
-    //         backgroundColor: AppColors.error,
-    //       )),
-    //           (successMsg){
-    //         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    //           content: Text(successMsg, style: TextStyle(color: AppColors.white),),
-    //           backgroundColor: AppColors.primary,
-    //         ));
-    //         Navigator.pop(context);
-    //       }
-    //   );
-    // }
   }
 }

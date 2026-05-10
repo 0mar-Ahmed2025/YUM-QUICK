@@ -23,7 +23,6 @@ class ProfileView extends StatelessWidget {
       create: (context) => GetUserDataCubit()..getUserDataPressed(),
       child: BlocBuilder<GetUserDataCubit, GetUserDataState>(
         builder: (context, state) {
-          // var cubit = GetUserDataCubit.get(context);
           if (state is GetUserDataSuccessState) {
             return CustomViewsStyle(
               header: ListTile(
@@ -70,10 +69,16 @@ class ProfileView extends StatelessWidget {
                       color: AppColors.orange,
                     ),
                     text: 'My Profile',
-                    onPressed: () => MyNavigator.goto(
-                      context,
-                      MyProfileView(userModel: state.user),
-                    ),
+                    onPressed: () async {
+                      final bool? isUpdated = await MyNavigator.goto(
+                        context,
+                        MyProfileView(userModel: state.user),
+                        type: NavigatorType.push,
+                      );
+                      if (isUpdated == true && context.mounted) {
+                        GetUserDataCubit.get(context).getUserDataPressed();
+                      }
+                    },
                   ),
                   SizedBox(height: 10),
                   CustomGoToBtn(
@@ -149,7 +154,9 @@ class ProfileView extends StatelessWidget {
               ),
             );
           } else {
-            return Center(child: Text("Error"));
+            return Center(
+              child: CircularProgressIndicator(color: AppColors.orange),
+            );
           }
         },
       ),

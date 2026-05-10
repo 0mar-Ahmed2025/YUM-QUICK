@@ -30,38 +30,3 @@ class LoginCubit extends Cubit<LoginStates> {
     );
   }
 }
-
-
- // if (formKey.currentState?.validate() == true) {
-    //   setState(() {
-    //     isLoading = true;
-    //   });
-    //   var result = await APIHelper.register(
-    //     userName: username.text,
-    //     password: password.text,
-    //     imagePath: imagePath,
-    //   );
-    //   result.fold(
-    //     (errorMsg) => ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //         content: Text(errorMsg, style: TextStyle(color: AppColors.white)),
-    //         backgroundColor: AppColors.error,
-    //       ),
-    //     ),
-    //     (successMsg) {
-    //       ScaffoldMessenger.of(context).showSnackBar(
-    //         SnackBar(
-    //           content: Text(
-    //             successMsg,
-    //             style: TextStyle(color: AppColors.white),
-    //           ),
-    //           backgroundColor: AppColors.primary,
-    //         ),
-    //       );
-    //       Navigator.pop(context);
-    //     },
-    //   );
-    //   setState(() {
-    //     isLoading = false;
-    //   });
-    // }
